@@ -1,0 +1,26 @@
+.Counter {
+  background-color: rgb(255, 255, 255);
+
+  height: 6rem;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 0.5rem;
+
+  padding: 1rem 2rem 0 2rem;
+  margin-top: 0.5rem;
+
+  display: flex;
+  justify-content: center;
+
+  font-family: 'Digital';
+}
+
+.Counter h2 {
+  font-size: 5rem;
+  font-weight: 500;
+  color: rgb(1, 85, 39);
+}
+
+.Counter .warning {
+  color: rgb(230, 46, 46);
+}

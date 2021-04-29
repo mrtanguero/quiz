@@ -1,6 +1,7 @@
 .Result {
   min-width: 50%;
   max-width: 80%;
+  background-color: rgb(247, 247, 247);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   border-radius: 0.5rem;
 

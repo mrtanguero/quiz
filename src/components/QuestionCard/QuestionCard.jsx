@@ -11,13 +11,23 @@ export default function QuestionCard({
 }) {
   const [pick, setPick] = useState(null);
   const [isAnswerConfirmed, setIsAnswerConfirmed] = useState(false);
-  let timeOutHandle;
+  // let timeOutHandle;
 
   useEffect(() => {
+    let mounted = true;
+    let timeOutHandle;
+    timeOutHandle = setTimeout(() => {
+      if (mounted && isAnswerConfirmed) {
+        setQuestionNumber((prev) => prev + 1);
+        setPick(null);
+        setIsAnswerConfirmed(false);
+      }
+    }, 1000);
     return () => {
+      mounted = false;
       clearTimeout(timeOutHandle);
     };
-  }, [timeOutHandle]);
+  }, [setQuestionNumber, isAnswerConfirmed]);
 
   const onSelectionChange = (e) => {
     if (isAnswerConfirmed) return;
@@ -30,11 +40,6 @@ export default function QuestionCard({
     newAnswers[questionNumber - 1] = pick === question.correctAnswer ? 1 : 0;
     setAnswers(newAnswers);
     setIsAnswerConfirmed(true);
-    timeOutHandle = setTimeout(() => {
-      setQuestionNumber((prev) => prev + 1);
-      setPick(null);
-      setIsAnswerConfirmed(false);
-    }, 1000);
   };
 
   const addValidationStyling = (answer) => {
@@ -44,7 +49,9 @@ export default function QuestionCard({
 
   return (
     <div className="QuestionCard">
-      <h3>{question.question}</h3>
+      <div className="title-container">
+        <span className="title-text">{question.question}</span>
+      </div>
       <div className="answers">
         {question.answers.map((answer, index) => (
           <div key={index} className="answer-field">
@@ -65,7 +72,7 @@ export default function QuestionCard({
           </div>
         ))}
       </div>
-      <button onClick={onButtonClick}>Odgovori</button>
+      <button onClick={onButtonClick}>{pick ? 'Odgovori' : 'Dalje'}</button>
     </div>
   );
 }
