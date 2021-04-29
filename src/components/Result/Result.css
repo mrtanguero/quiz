@@ -1,0 +1,25 @@
+.Result {
+  min-width: 50%;
+  max-width: 80%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 0.5rem;
+
+  padding: 3% 5%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Result h2 {
+  margin-bottom: 2rem;
+}
+
+.Result .text-info {
+  margin-bottom: 2rem;
+}
