@@ -22,7 +22,11 @@ function App() {
 
   const game = (
     <React.Fragment>
-      <Counter isTimeUp={isTimeUp} setIsTimeUp={setIsTimeUp} />
+      <Counter
+        isTimeUp={isTimeUp}
+        setIsTimeUp={setIsTimeUp}
+        questionNumber={questionNumber}
+      />
       {questionNumber < 11 && !isTimeUp ? (
         <QuestionCard
           question={randomQuestions[questionNumber - 1]}
