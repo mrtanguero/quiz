@@ -9,7 +9,7 @@ export default function WelcomeCard({ setQuestionNumber }) {
 
   return (
     <div className="WelcomeCard">
-      <h2>Dobrodošli!</h2>
+      <h2>Dobro došli!</h2>
       <div className="text-info">
         <p>Dobićete 10 pitanja i imate {TIME_ALLOWED} sekundi da odgovorite!</p>
       </div>

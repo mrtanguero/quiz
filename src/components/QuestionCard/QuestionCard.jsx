@@ -31,12 +31,16 @@ export default function QuestionCard({
     setPick(e.target.value);
   };
 
-  const onButtonClick = () => {
+  const onConfirmButtonClick = () => {
     if (isAnswerConfirmed) return;
     const newAnswers = [...answers];
     newAnswers[questionNumber - 1] = pick === question.correctAnswer ? 1 : 0;
     setAnswers(newAnswers);
     setIsAnswerConfirmed(true);
+  };
+
+  const onQuitButtonClick = () => {
+    window.location.reload();
   };
 
   const addValidationStyling = (answer) => {
@@ -69,7 +73,14 @@ export default function QuestionCard({
           </div>
         ))}
       </div>
-      <button onClick={onButtonClick}>{pick ? 'ODGOVORI' : 'DALJE'}</button>
+      <div className="buttons-container">
+        <button onClick={onConfirmButtonClick}>
+          {pick ? 'ODGOVORI' : 'DALJE'}
+        </button>
+        <button className="danger" onClick={onQuitButtonClick}>
+          ODUSTANI
+        </button>
+      </div>
     </div>
   );
 }

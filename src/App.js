@@ -18,18 +18,30 @@ const randomQuestions = _.shuffle(questions)
 
 function App() {
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [answers, setAnswers] = useState(Array(10).fill(0));
+  const [answers, setAnswers] = useState(Array(10).fill(null));
   const [isTimeUp, setIsTimeUp] = useState(false);
   const [timer, setTimer] = useState(TIME_ALLOWED);
 
   const game = (
     <React.Fragment>
-      <Counter
-        setIsTimeUp={setIsTimeUp}
-        questionNumber={questionNumber}
-        setTimer={setTimer}
-        timer={timer}
-      />
+      <div className="scoreboard-container">
+        <div className="correct-answers">
+          <span>Tačnih odgovora:</span>
+          <span className="digital">{_.sum(answers)}</span>
+        </div>
+        <Counter
+          setIsTimeUp={setIsTimeUp}
+          questionNumber={questionNumber}
+          setTimer={setTimer}
+          timer={timer}
+        />
+        <div className="wrong-answers">
+          <span> Netačnih odgovora:</span>
+          <span className="digital">
+            {answers.filter((answer) => answer === 0).length}
+          </span>
+        </div>
+      </div>
       {questionNumber < 11 && !isTimeUp ? (
         <QuestionCard
           question={randomQuestions[questionNumber - 1]}

@@ -37,5 +37,28 @@
 
 .App h1 {
   margin-top: 2rem;
+  margin-bottom: 0.6rem;
   color: white;
+}
+
+.App .scoreboard-container {
+  display: flex;
+  justify-content: center;
+  gap: 12rem;
+  text-align: center;
+  color: white;
+}
+
+.App .scoreboard-container span {
+  display: block;
+}
+
+.App .wrong-answers {
+  margin-right: -1rem;
+}
+
+.App .digital {
+  font-family: 'Digital';
+  font-size: 5rem;
+  margin-top: 0.4rem;
 }

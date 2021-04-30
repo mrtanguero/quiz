@@ -5,9 +5,9 @@ export const questions = [
     correctAnswer: 'Buena Vista',
   },
   {
-    question: 'Random pitanje - promijeni',
-    answers: ['prvi', 'drugi', 'treći', 'četvrti'],
-    correctAnswer: 'drugi',
+    question: 'Koja boja se nalazi na 75% svjetskih zastava?',
+    answers: ['crvena', 'plava', 'bijela', 'zelena'],
+    correctAnswer: 'crvena',
   },
   {
     question: 'Ko je osnivač kompanije "Apple"?',
@@ -64,8 +64,8 @@ export const questions = [
   },
   {
     question: 'Koje boje nema u logu Olimpijskih igara?',
-    answers: ['Crvene', 'Crne', 'Žute', 'Bijele'],
-    correctAnswer: 'Bijele',
+    answers: ['crvene', 'crne', 'žute', 'bijele'],
+    correctAnswer: 'bijele',
   },
   {
     question:
@@ -85,19 +85,19 @@ export const questions = [
   },
   {
     question: 'Od čega se pravi japanski sake?',
-    answers: ['Od riže', 'Od ribe', 'Od trske', 'Od grožđa'],
-    correctAnswer: 'Od riže',
+    answers: ['pirinča', 'ribe', 'trske', 'grožđa'],
+    correctAnswer: 'pirinča',
   },
   {
     question:
       'Koja aplikacija je daunloadovana najveći broj puta u 2020. godini?',
-    answers: ['Facebook', 'Candy Crush Saga', 'Instagram', 'Tik tok'],
+    answers: ['Fejsbuk', 'Kendi Kraš Saga', 'Instagram', 'Tik tok'],
     correctAnswer: 'Tik tok',
   },
   {
     question: 'Vanila se dobija iz kog cvijeta?',
-    answers: ['Orhideje', 'Lale', 'Suncokreta', 'Ljubičice'],
-    correctAnswer: 'Orhideje',
+    answers: ['orhideje', 'lale', 'suncokreta', 'ljubičice'],
+    correctAnswer: 'orhideje',
   },
   {
     question: 'Koje Šejkspirovo djelo je najduže?',

@@ -18,9 +18,13 @@
 }
 
 .Result h2 {
+  margin-bottom: 0.2rem;
+}
+
+.Result .time-info {
   margin-bottom: 2rem;
 }
 
-.Result .text-info {
+.Result .score-info {
   margin-bottom: 2rem;
 }
