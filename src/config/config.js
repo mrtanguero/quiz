@@ -1,1 +1,1 @@
-export const TIME_ALLOWED = 10;
+export const TIME_ALLOWED = 30;
