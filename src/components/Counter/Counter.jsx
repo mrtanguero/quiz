@@ -1,30 +1,27 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { TIME_ALLOWED } from '../../config/config.js';
 import './Counter.css';
 
-export default function Counter({ isGameOver, setIsGameOver }) {
-  const counterRef = useRef();
+export default function Counter({ isTimeUp, setIsTimeUp }) {
+  const [timer, setTimer] = useState(TIME_ALLOWED);
 
   useEffect(() => {
-    const timeOutHandle = setTimeout(() => {
-      setIsGameOver(true);
-    }, 30000);
+    if (timer <= 0) {
+      setIsTimeUp(true);
+      return;
+    }
     const intervalHandle = setInterval(() => {
-      if (counterRef.current) {
-        counterRef.current.textContent -= 1;
-        if (counterRef.current.textContent <= 3) {
-          counterRef.current.classList.add('warning');
-        }
-      }
+      setTimer((prevTimer) => prevTimer - 1);
     }, 1000);
+
     return () => {
-      clearTimeout(timeOutHandle);
       clearInterval(intervalHandle);
     };
-  }, [setIsGameOver, counterRef, isGameOver]);
+  }, [setIsTimeUp, isTimeUp, timer]);
 
   return (
     <div className="Counter">
-      <h2 ref={counterRef}>30</h2>
+      <h2 className={`${timer <= 3 ? 'warning' : ''}`}>{timer}</h2>
     </div>
   );
 }

@@ -11,7 +11,6 @@ export default function QuestionCard({
 }) {
   const [pick, setPick] = useState(null);
   const [isAnswerConfirmed, setIsAnswerConfirmed] = useState(false);
-  // let timeOutHandle;
 
   useEffect(() => {
     let mounted = true;
@@ -72,7 +71,7 @@ export default function QuestionCard({
           </div>
         ))}
       </div>
-      <button onClick={onButtonClick}>{pick ? 'Odgovori' : 'Dalje'}</button>
+      <button onClick={onButtonClick}>{pick ? 'ODGOVORI' : 'DALJE'}</button>
     </div>
   );
 }

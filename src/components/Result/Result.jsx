@@ -18,7 +18,7 @@ export default function Result({ answers }) {
         <p>{10 - _.sum(answers)} pogrešnih odgovora / neodgovorenih pitanja.</p>
       </div>
       {/* <p>Želite li da igrate ponovo?</p> */}
-      <button onClick={onButtonClick}>Probaj ponovo?</button>
+      <button onClick={onButtonClick}>PROBAJ PONOVO?</button>
     </div>
   );
 }
