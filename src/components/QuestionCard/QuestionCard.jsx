@@ -14,8 +14,7 @@ export default function QuestionCard({
 
   useEffect(() => {
     let mounted = true;
-    let timeOutHandle;
-    timeOutHandle = setTimeout(() => {
+    setTimeout(() => {
       if (mounted && isAnswerConfirmed) {
         setQuestionNumber((prev) => prev + 1);
         setPick(null);
@@ -24,9 +23,8 @@ export default function QuestionCard({
     }, 1000);
     return () => {
       mounted = false;
-      clearTimeout(timeOutHandle);
     };
-  }, [setQuestionNumber, isAnswerConfirmed]);
+  }, [isAnswerConfirmed, setQuestionNumber]);
 
   const onSelectionChange = (e) => {
     if (isAnswerConfirmed) return;

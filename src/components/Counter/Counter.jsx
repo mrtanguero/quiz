@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { TIME_ALLOWED } from '../../config/config.js';
+import React, { useEffect } from 'react';
 import './Counter.css';
 
-export default function Counter({ isTimeUp, setIsTimeUp, questionNumber }) {
-  const [timer, setTimer] = useState(TIME_ALLOWED);
-
+export default function Counter({
+  setIsTimeUp,
+  questionNumber,
+  setTimer,
+  timer,
+}) {
   useEffect(() => {
     if (timer <= 0 || questionNumber >= 11) {
       setIsTimeUp(true);
@@ -17,11 +19,14 @@ export default function Counter({ isTimeUp, setIsTimeUp, questionNumber }) {
     return () => {
       clearInterval(intervalHandle);
     };
-  }, [setIsTimeUp, isTimeUp, timer, questionNumber]);
+  }, [questionNumber, setIsTimeUp, setTimer, timer]);
 
   return (
     <div className="Counter">
-      <h2 className={`${timer <= 3 ? 'warning' : ''}`}>{timer}</h2>
+      <h2 className={`${timer <= 3 ? 'warning' : ''}`}>
+        {timer < 10 ? '0' : ''}
+        {timer}
+      </h2>
     </div>
   );
 }

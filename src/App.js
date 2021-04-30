@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import _ from 'lodash';
+import { TIME_ALLOWED } from './config/config.js';
 
 import './App.css';
 import { questions } from './data/questions.js';
@@ -19,13 +20,15 @@ function App() {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [answers, setAnswers] = useState(Array(10).fill(0));
   const [isTimeUp, setIsTimeUp] = useState(false);
+  const [timer, setTimer] = useState(TIME_ALLOWED);
 
   const game = (
     <React.Fragment>
       <Counter
-        isTimeUp={isTimeUp}
         setIsTimeUp={setIsTimeUp}
         questionNumber={questionNumber}
+        setTimer={setTimer}
+        timer={timer}
       />
       {questionNumber < 11 && !isTimeUp ? (
         <QuestionCard
@@ -36,7 +39,7 @@ function App() {
           setQuestionNumber={setQuestionNumber}
         />
       ) : (
-        <Result answers={answers} />
+        <Result answers={answers} timer={timer} />
       )}
     </React.Fragment>
   );

@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import './Result.css';
 
-export default function Result({ answers }) {
+export default function Result({ answers, timer }) {
   const onButtonClick = () => {
     window.location.reload();
   };
@@ -13,6 +13,11 @@ export default function Result({ answers }) {
       <div className="text-info">
         <p>
           <strong>Rezultat:</strong>
+        </p>
+        <p>
+          {timer === 0
+            ? 'Vrijeme je isteklo.'
+            : `Prestalo vrijeme: ${timer} sekundi.`}
         </p>
         <p>{_.sum(answers)} tačnih odgovora.</p>
         <p>{10 - _.sum(answers)} pogrešnih odgovora / neodgovorenih pitanja.</p>
